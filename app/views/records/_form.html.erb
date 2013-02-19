@@ -1,9 +1,9 @@
 <%= simple_form_for @record, :html => { :class => 'form-horizontal' } do |f| %>
 <fieldset>
-	<%= f.hidden_field :user_id, :value => User.where({email: 'katalina.crespo@gmail.com'}) %>
+	<%= f.hidden_field :user_id, :value => User.where({email: 'katalina.crespo@gmail.com'}).first[:id] %>
 	<div class="row">
-		<div class="span3">
-			<%= f.select :service, Service.all.map {|s| [s.name, s.id]}%>
+		<div class="span4">
+			<%= f.association :service, collection: Service.all.map {|s| [s.name, s.id]}%>
 		</div>
 		<div class="span3">
 			<%= f.button :submit, :class => 'btn btn-primary btn-large', :value => "Crear atención"%>

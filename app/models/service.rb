@@ -1,3 +1,4 @@
 class Service < ActiveRecord::Base
-  attr_accessible :description, :name, :value, :record_id
+  attr_accessible :description, :name, :value
+  has_many :records
 end
