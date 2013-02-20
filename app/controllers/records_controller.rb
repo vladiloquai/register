@@ -2,8 +2,20 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
 
+  def get_total_from_records records
+    records.reduce(0){|total, r| 
+      r.total_amount + total
+    }  
+  end
+
   def summary
-    @records = Record.where({created_at: Date.today})
+    @today          = Date.today
+    @today_records  = Record.where({:created_at => (@today.at_beginning_of_day.utc..Time.now.utc)})
+    records_of_moth = Record.where(:created_at => @today.beginning_of_month..@today.end_of_month)
+    @today_total    = get_total_from_records(@today_records)
+    @month_total    = get_total_from_records(records_of_moth)
+    @mine_total     = @month_total / 2
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @records }
@@ -53,7 +65,8 @@ class RecordsController < ApplicationController
 
     respond_to do |format|
       if @record.save
-        format.html { redirect_to @record, notice: 'Record was successfully created.' }
+
+        format.html { redirect_to root_path, notice: 'Record was successfully created.' }
         format.json { render json: @record, status: :created, location: @record }
       else
         format.html { render action: "new" }

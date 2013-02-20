@@ -4,7 +4,6 @@ Register::Application.routes.draw do
 
   resources :users
 
-
   root :to => 'records#summary'
   resources :records
   resources :services
