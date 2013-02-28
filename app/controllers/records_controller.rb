@@ -1,7 +1,5 @@
 class RecordsController < ApplicationController
-  # GET /records
-  # GET /records.json
-
+  
   def get_total_from_records records
     records.reduce(0){|total, r| 
       r.total_amount + total
@@ -10,14 +8,14 @@ class RecordsController < ApplicationController
 
   def summary
     @today          = Date.today
-    @today_records  = Record.where({:created_at => (@today.at_beginning_of_day.utc..Time.now.utc)})
-    records_of_moth = Record.where(:created_at => @today.beginning_of_month..@today.end_of_month)
+    @today_records  = Record.where({:created_at => (@today.at_beginning_of_day..Time.now)})
+    records_of_moth = Record.where({:created_at => (@today.beginning_of_month-1..@today.end_of_month+1)})
     @today_total    = get_total_from_records(@today_records)
     @month_total    = get_total_from_records(records_of_moth)
-    @mine_total     = @month_total / 2
+    @mine_total     = (@month_total / 2).round
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @records }
     end  
   end
@@ -26,13 +24,11 @@ class RecordsController < ApplicationController
     @records = Record.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @records }
     end
   end
 
-  # GET /records/1
-  # GET /records/1.json
   def show
     @record = Record.find(params[:id])
 
@@ -42,8 +38,6 @@ class RecordsController < ApplicationController
     end
   end
 
-  # GET /records/new
-  # GET /records/new.json
   def new
     @record = Record.new
 
@@ -53,13 +47,10 @@ class RecordsController < ApplicationController
     end
   end
 
-  # GET /records/1/edit
   def edit
     @record = Record.find(params[:id])
   end
 
-  # POST /records
-  # POST /records.json
   def create
     @record = Record.new(params[:record])
 
@@ -75,8 +66,6 @@ class RecordsController < ApplicationController
     end
   end
 
-  # PUT /records/1
-  # PUT /records/1.json
   def update
     @record = Record.find(params[:id])
 
@@ -91,8 +80,6 @@ class RecordsController < ApplicationController
     end
   end
 
-  # DELETE /records/1
-  # DELETE /records/1.json
   def destroy
     @record = Record.find(params[:id])
     @record.destroy
