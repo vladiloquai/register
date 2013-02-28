@@ -36,22 +36,35 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <!-- <div class="navbar navbar-fixed-top">
       <div class="navbar-inner register-menu-container">
         <div class="container">          
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= image_tag 'home.png'%></li>
-              <li><%= image_tag 'cut.png'%></li>
-              <li><%= link_to "/ Resumen ", root_path, class: 'brand'%></li>
-              <li><%= link_to "/ Servicios /", services_path, class: 'brand'%></li>
+              <li><%#= image_tag 'home.png'%></li>
+              <li><%#= image_tag 'cut.png'%></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
+      </div>
+    </div> -->
+
+    <div class="container">          
+      <div class="row">
+        <div class="span2">
+          <%= link_to root_path do %>
+            <%= image_tag 'home.png'%>
+          <% end %>
+        </div>
+        <div class="span2">
+          <%= link_to services_path do %>
+            <%= image_tag 'cut.png'%>
+          <% end %>
+        </div>          
       </div>
     </div>
 
-    <div class="container register-container">
+    <div class="container">
         <div class="row">
           <div class="span9">
              <%= yield %>
