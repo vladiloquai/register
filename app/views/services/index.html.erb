@@ -5,20 +5,16 @@
 <table class="table table-striped register-list">
   <thead>
     <tr>
-      <th><h4>Id</h4></th>
       <th><h4>Nombre</h4></th>
       <th><h4>Precio</h4></th>
-      <th><h4>Descripción</h4></th>
       <th><h4>Acciones</h4></th>
     </tr>
   </thead>
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= link_to service.id, service_path(service) %></td>
         <td><%= service.name %></td>
         <td><%= service.value %></td>
-        <td><%= service.description %></td>
         <td>
           <%= link_to 'Editar',edit_service_path(service), :class => 'btn btn-info' %>
           <%= link_to 'Eliminar',

@@ -24,3 +24,10 @@
 .label-form{
 	border-top:0;
 }
+
+.icons-links-menu-top{
+	A:link {text-decoration: none}
+	A:visited {text-decoration: none}
+	A:active {text-decoration: none}
+	A:hover {text-decoration: none}
+}
