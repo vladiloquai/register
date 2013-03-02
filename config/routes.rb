@@ -4,8 +4,12 @@ Register::Application.routes.draw do
 
   resources :users
 
-  root :to => 'records#summary'
-  resources :records
+  root :to => 'home#index'
+  resources :records do
+  	collection do
+  		get :summary
+  	end
+  end
   resources :services
 
 end

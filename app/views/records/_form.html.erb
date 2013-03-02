@@ -1,6 +1,6 @@
 <%= simple_form_for @record do |f| %>
 
-<%= f.hidden_field :user_id, :value => User.where({email: 'katalina.crespo@gmail.com'}).first[:id] %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
 <div class="row">
 	<div class="span1 label-form"><h4>Servicio</h4></div>

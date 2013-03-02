@@ -1,4 +1,5 @@
 class RecordsController < ApplicationController
+  before_filter :authenticate_user!
   
   def get_total_from_records records
     records.reduce(0){|total, r| 

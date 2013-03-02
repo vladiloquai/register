@@ -42,7 +42,7 @@
     <% @today_records.each do |record| %>
       <tr>
         <td><%= record.service.name%></td>
-        <td><%= record.service.value %></td>
+        <td>$<%= record.service.value %></td>
         <td>
           <%= link_to 'Editar', edit_record_path(record), :class => 'btn btn-info' %>
           <%= link_to 'Eliminar',
