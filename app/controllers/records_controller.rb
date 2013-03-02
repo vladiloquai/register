@@ -60,7 +60,7 @@ class RecordsController < ApplicationController
     respond_to do |format|
       if @record.save
 
-        format.html { redirect_to root_path, notice: 'Record was successfully created.' }
+        format.html { redirect_to summary_records_path, notice: 'Muy bien :) agregaste una nueva atencion' }
         format.json { render json: @record, status: :created, location: @record }
       else
         format.html { render action: "new" }
