@@ -9,8 +9,10 @@ class RecordsController < ApplicationController
 
   def summary
     @today          = Date.today
-    @today_records  = Record.where({:created_at => (@today.at_beginning_of_day..Time.now)})
-    records_of_moth = Record.where({:created_at => (@today.beginning_of_month-1..@today.end_of_month+1)})
+    @today_records  = Record.where({created_at: (@today.at_beginning_of_day..Time.now), 
+                                    user_id: current_user.id })
+    records_of_moth = Record.where({created_at: (@today.beginning_of_month-1..@today.end_of_month+1), 
+                                    user_id: current_user.id})
     @today_total    = get_total_from_records(@today_records)
     @month_total    = get_total_from_records(records_of_moth)
     @mine_total     = (@month_total / 2).round

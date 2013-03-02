@@ -51,7 +51,7 @@
       <% if current_user %>  
       <div class="container">
         <span>
-          <%= link_to root_path do %>
+          <%= link_to summary_records_path do %>
             <%= image_tag 'home.png', :height => "64px", :width => "64px"%>
           <% end %>
         </span>
@@ -64,14 +64,15 @@
           <%= link_to services_path do %>
             <%= image_tag 'cut.png', :height => "64px", :width => "64px"%>
           <% end %>
-        </span>
-        <!-- <span>
-          <%#= link_to destroy_user_session_path, :method => :delete do %>
-            <%#= image_tag 'exit.png', :height => "64px", :width => "64px"%>
-          <%# end %>
-        </span>  -->         
+        </span>       
       </div>
       <%end%>
+
+      <div class="container">
+        <% if flash[:notice] %>
+          <h4><%= flash[:notice] %></h4>
+        <% end %>
+      </div>
 
 
     <div class="container">
@@ -93,7 +94,7 @@
       <!-- <footer>
         &copy; Development by vla
       </footer> -->
-
+      <%= link_to '.', destroy_user_session_path, :method => :delete%>
     </div> <!-- /container -->
 
     <!-- Javascripts
