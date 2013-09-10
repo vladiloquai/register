@@ -17,28 +17,28 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="<%= root_path%>">HOLA</a>
+                    <a class="brand" href="<%= root_path%>"><%=t('titles.app')%></a>
                     <div class="container nav-collapse">
                         <ul class="nav pull-right">
 
                             <% if user_signed_in? %>
 
-                                <!-- Contests Menu -->
+                                <!-- Services Menu -->
                                 <% if 1 == 1 %>
                                     <li>
-                                        <%= link_to root_path  do%>
-                                            <i class="icon icon-flag-checkered"></i>
-                                            <%=t('contests.index.title')%>
+                                        <%= link_to services_path  do%>
+                                            <i class="icon icon-cut"></i>
+                                            <%=t('services.index.title')%>
                                         <% end %>
                                     </li>
                                 <% end %>
 
-                                <!-- Categories Menu -->
+                                <!-- Records Menu -->
                                 <% if 1 == 1 %>
                                     <li>
-                                        <%= link_to root_path  do%>
-                                            <i class="icon icon-list"></i>
-                                            <%=t('categories.index.title')%>
+                                        <%= link_to records_path  do%>
+                                            <i class="icon icon-list-ol"></i>
+                                            <%=t('records.index.title')%>
                                         <% end %>
                                     </li>
                                 <% end %>

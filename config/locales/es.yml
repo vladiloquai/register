@@ -1,0 +1,13 @@
+# encoding: utf-8
+es:
+  titles:
+    app: "Registro de atenciones"
+  users:
+    index:
+      title: "Usuarios"
+  services:
+    index:
+      title: "Servicios"
+  records:
+    index: 
+      title: "Atenciones"
