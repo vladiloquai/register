@@ -23,12 +23,12 @@
 
                             <% if user_signed_in? %>
 
-                                <!-- Services Menu -->
+                                <!-- Summary Menu -->
                                 <% if 1 == 1 %>
                                     <li>
-                                        <%= link_to services_path  do%>
-                                            <i class="icon icon-cut"></i>
-                                            <%=t('services.index.title')%>
+                                        <%= link_to root_path  do%>
+                                            <i class="icon icon-dashboard"></i>
+                                            <%=t('titles.summary')%>
                                         <% end %>
                                     </li>
                                 <% end %>
@@ -43,6 +43,16 @@
                                     </li>
                                 <% end %>
 
+                                <!-- Services Menu -->
+                                <% if 1 == 1 %>
+                                    <li>
+                                        <%= link_to services_path  do%>
+                                            <i class="icon icon-cut"></i>
+                                            <%=t('services.index.title')%>
+                                        <% end %>
+                                    </li>
+                                <% end %>
+
                                 <!-- Users Menu -->
                                 <% if 1 == 1 %>
                                     <li>
@@ -52,7 +62,6 @@
                                         <% end %>
                                     </li>
                                 <% end %>
-
 
                                 <!-- Mi Acount Menu -->
                                 <li class="dropdown">

@@ -2,6 +2,7 @@
 es:
   titles:
     app: "Registro de atenciones"
+    summary: "Resumen"
   users:
     index:
       title: "Usuarios"
